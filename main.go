@@ -68,24 +68,38 @@ func main() {
 	}
 
 	//////////
-	logger.Info("populating cache...")
+	logger.Info("populating test cache data...")
 
 	memCache.Set(constants.CacheKeyEvents, map[string]entities.Event{
-		"1234": {
-			EventID: "1234",
-			Odds:    15,
+		"91bb5494-ca38-42e9-a20d-cfa9a07900e6": {
+			EventID: "91bb5494-ca38-42e9-a20d-cfa9a07900e6",
+			Odds:    150,
 			Status:  constants.Open,
+		},
+		"5b1043d8-151f-441d-868b-d8227961d54f": {
+			EventID: "5b1043d8-151f-441d-868b-d8227961d54f",
+			Odds:    160,
+			Status:  constants.Open,
+		},
+		"38c86515-3eb8-458b-9f11-5cb677dbbe6f": {
+			EventID: "38c86515-3eb8-458b-9f11-5cb677dbbe6f",
+			Odds:    170,
+			Status:  constants.Resulted,
 		},
 	})
 
 	memCache.Set(constants.CacheKeyAccounts, map[string]entities.Account{
-		"2345": {
-			UserID:  "2345",
+		"6209cf4b-92f0-4c0e-8f8e-e4a518cd2430": {
+			UserID:  "6209cf4b-92f0-4c0e-8f8e-e4a518cd2430",
 			Balance: 100000,
+		},
+		"774ab462-b536-458b-ab46-30903f45001f": {
+			UserID:  "774ab462-b536-458b-ab46-30903f45001f",
+			Balance: 0,
 		},
 	})
 
-	logger.Info("populating cache completed")
+	logger.Info("populating test cache data completed")
 	//////////
 
 	cacheRespository := repositories.NewCacheRepository(memCache, logger)
