@@ -12,5 +12,8 @@ build:
 run: build
 	./build/${BIN}
 
-populate-cache:
-	go run cmd/main.go
+build-mocks:
+	cd mocks/ && rm -rf -- */ && mockery
+
+test:
+	go test ./... -tags musl -coverprofile=coverage.txt -covermode count = 1
